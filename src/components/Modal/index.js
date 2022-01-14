@@ -2,14 +2,22 @@ import useClickAway from "hooks/useClickAway";
 import styled from "styled-components";
 import closeImage from "assets/icons/close.png";
 
-const Wrapper = styled.div`
-  padding: 10px;
+const Overlay = styled.div`
+  position: absolute;
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+`;
+
+const Window = styled.div`
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1;
-  height: 200px;
-  width: 200px;
   background: #fff;
   border: 1px solid #bbb;
   border-radius: 4px;
@@ -17,15 +25,28 @@ const Wrapper = styled.div`
   cursor: default;
 `;
 
+const Head = styled.div`
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  background: #00bfa6;
+  color: white;
+`;
+
 const Close = styled.img`
   height: 20px;
-  display: block;
-  margin-left: auto;
-  border: 1px solid;
   cursor: pointer;
 `;
 
-const Modal = ({ className, children, open, setOpen, ...props }) => {
+const Content = styled.div`
+  padding: 20px;
+`;
+
+const Title = styled.div``;
+
+const Modal = ({ className, children, title, open, setOpen, ...props }) => {
   const onClick = (event) => {
     event.stopPropagation();
   };
@@ -41,10 +62,16 @@ const Modal = ({ className, children, open, setOpen, ...props }) => {
   const { ref } = useClickAway(onClickAway);
 
   return open ? (
-    <Wrapper className={className} ref={ref} {...props} onClick={onClick}>
-      <Close src={closeImage} onClick={onClickClose} />
-      {children}
-    </Wrapper>
+    <>
+      <Overlay />
+      <Window ref={ref} onClick={onClick} {...props}>
+        <Head>
+          <Title>{title}</Title>
+          <Close src={closeImage} onClick={onClickClose} />
+        </Head>
+        <Content className={className}>{children}</Content>
+      </Window>
+    </>
   ) : null;
 };
 

@@ -1,18 +1,22 @@
-import Page from "components/Page2";
-import styled from "styled-components";
-import Bugs from "./Bugs";
-
-const Wrapper = styled(Page)`
-  height: 100%;
-  width: 100%;
-`;
+import Empty from "./Empty";
+import useApp from "hooks/useApp";
+import Home from "./Home";
+import { useEffect } from "react";
+import useRequest from "hooks/useRequest";
 
 const Projects = ({ className, ...props }) => {
-  return (
-    <Wrapper className={className} {...props}>
-      <Bugs />
-    </Wrapper>
-  );
+  const { projects, setProjects, refresh } = useApp();
+  const { get } = useRequest();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await get("/projects-my");
+      setProjects(response?.json?.data);
+    };
+    fetchData();
+  }, [refresh]);
+
+  return projects?.length ? <Home /> : <Empty />;
 };
 
 export default Projects;

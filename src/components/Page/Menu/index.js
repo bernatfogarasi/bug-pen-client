@@ -1,33 +1,33 @@
-import styled, { css } from "styled-components";
-import Logo from "./Logo";
-import Close from "./Close";
 import useApp from "hooks/useApp";
+import styled, { css } from "styled-components";
+import Buttons from "./Buttons";
+import Logo from "./Logo";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: #ececee;
-  box-sizing: border-box;
-  padding: 10px;
-  gap: 10px;
-  ${({ open }) =>
-    open
-      ? css`
-          --menu-width: 200px;
-        `
-      : css`
-          --menu-width: 50px;
-        `}
-  transition: 0.2s;
-  width: var(--menu-width);
+  display: contents;
+  border: 1px solid;
+  & > div {
+    ${({ open }) =>
+      open
+        ? css`
+            width: 300px;
+          `
+        : css`
+            width: 100px;
+          `}
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: 0.5s;
+    background: #ececec;
+  }
 `;
 
 const Menu = ({ className, ...props }) => {
   const { menuIsOpen } = useApp();
   return (
     <Wrapper className={className} open={menuIsOpen} {...props}>
-      <Close />
       <Logo />
+      <Buttons />
     </Wrapper>
   );
 };

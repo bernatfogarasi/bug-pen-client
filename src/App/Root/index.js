@@ -7,7 +7,7 @@ import Welcome from "./Welcome";
 
 const Wrapper = styled(Page)`
   display: flex;
-  gap: 10px;
+  gap: 50px;
   flex-direction: column;
   align-items: center;
 `;

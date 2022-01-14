@@ -1,48 +1,28 @@
-import { PageContext } from "context";
-import useApp from "hooks/useApp";
-import { useState } from "react";
-import styled, { css } from "styled-components";
-import Main from "./Main";
-import MenuRaw from "./Menu";
+import styled from "styled-components";
+import Content from "./Content";
+import Menu from "./Menu";
+// import ModalOpen from "./ModalOpen";
+// import ModalsMinimized from "./ModalsMinimized";
+import TopBar from "./TopBar";
 
 const Wrapper = styled.div`
-  /* display: grid;
-  grid-template-rows: 100vh; */
-  ${({ open }) =>
-    open
-      ? css`
-          --menu-width: 200px;
-        `
-      : css`
-          --menu-width: 50px;
-        `}
-  transition: 1s;
-  /* grid-template-columns: var(--menu-width) calc(100vw - var(--menu-width)); */
-
-  /* display: flex;
-  height: 100vh;
-  width: 100vw; */
-  display: flex;
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
 `;
 
-const Menu = styled(MenuRaw)`
-  grid-column: 1;
-`;
-
-const Page = ({
-  className: contentClassName,
-  children: contentChildren,
-  ...props
-}) => {
-  const { menuIsOpen } = useApp();
+const Page = ({ className, children, ...props }) => {
   return (
-    <Wrapper open={menuIsOpen} {...props}>
+    <Wrapper {...props}>
       <Menu />
-      <Main
-        contentClassName={contentClassName}
-        contentChildren={contentChildren}
-      />
+      <TopBar />
+      <Content className={className}>{children}</Content>
+      {/* <ModalOpen />
+      <ModalsMinimized /> */}
     </Wrapper>
   );
 };

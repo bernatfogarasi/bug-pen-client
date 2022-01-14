@@ -2,8 +2,7 @@ import { AppContext } from "context";
 import { useContext } from "react";
 
 const useApp = () => {
-  const context = useContext(AppContext);
-  return context;
+  return useContext(AppContext);
 };
 
 export default useApp;
