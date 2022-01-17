@@ -5,7 +5,6 @@ const Wrapper = styled.div`
   /* table-layout: fixed;
   width: 100%; */
   border: 1px solid #ccc;
-  border-width: 1px 0;
   :hover {
     background: #eee;
   }

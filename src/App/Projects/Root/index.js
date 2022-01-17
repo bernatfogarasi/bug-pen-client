@@ -5,15 +5,11 @@ import { useEffect } from "react";
 import useRequest from "hooks/useRequest";
 
 const Projects = ({ className, ...props }) => {
-  const { projects, setProjects, refresh } = useApp();
+  const { projects, refresh } = useApp();
   const { get } = useRequest();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await get("/projects-my");
-      setProjects(response?.json?.data);
-    };
-    fetchData();
+    get("/projects-my");
   }, [refresh]);
 
   return projects?.length ? <Home /> : <Empty />;

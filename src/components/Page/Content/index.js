@@ -6,8 +6,12 @@ const Wrapper = styled.div`
   overflow: auto;
 `;
 
-const Content = ({ className, ...props }) => {
-  return <Wrapper className={className} {...props}></Wrapper>;
+const Content = ({ className, children, ...props }) => {
+  return (
+    <Wrapper className={className} {...props}>
+      {children}
+    </Wrapper>
+  );
 };
 
 export default Content;

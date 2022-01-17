@@ -15,13 +15,14 @@ const Wrapper = styled(Link)`
   :hover {
     background: #ccc;
   }
+  transition: 0.3s;
   ${({ open }) =>
     open
       ? css``
       : css`
           font-size: 0px;
+          padding: 20px;
         `}
-  transition: 0.2s;
 `;
 
 const Image = styled.img`

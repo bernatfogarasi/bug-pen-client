@@ -10,6 +10,7 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   opacity: 0.2;
+  z-index: 10;
 `;
 
 const Window = styled.div`
@@ -23,6 +24,7 @@ const Window = styled.div`
   border-radius: 4px;
   transform: translate(-50%, -50%);
   cursor: default;
+  z-index: 11;
 `;
 
 const Head = styled.div`

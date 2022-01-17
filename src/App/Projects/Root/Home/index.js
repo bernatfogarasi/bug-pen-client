@@ -6,8 +6,12 @@ import Project from "./Project";
 const Wrapper = styled(Page)`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
+  @media (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  grid-auto-rows: min-content;
+  gap: 20px;
+  padding: 20px;
   box-sizing: border-box;
 `;
 
@@ -17,7 +21,7 @@ const Home = ({ className, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
       {projects.map((project) => (
-        <Project project={project} />
+        <Project key={project.id} project={project} />
       ))}
     </Wrapper>
   );

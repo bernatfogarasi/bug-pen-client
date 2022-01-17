@@ -1,15 +1,60 @@
+import useApp from "hooks/useApp";
+import { Fragment } from "react";
 import styled from "styled-components";
+import imageArrow from "assets/icons/arrow2.png";
+import Link from "components/Link";
+import { titleFont } from "functions/text";
 
 const Wrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-grow: 1;
+  overflow-x: auto;
+`;
+
+const Name = styled(Link)`
+  border-radius: 4px;
   padding: 10px;
+  border: 1px solid;
+  user-select: none;
+  :hover {
+    background: #eee;
+  }
+`;
+
+const Arrow = styled.img`
+  height: 15px;
 `;
 
 const Breadcrumbs = ({ className, ...props }) => {
-  const names = window.location.pathname.split("/").filter((value) => value);
+  const { project } = useApp();
+  const names = window.location.pathname
+    .split("/")
+    .filter((name) => name)
+    .reduce(
+      (previous, name) => [
+        ...previous,
+        {
+          name,
+          display:
+            previous?.at(-1)?.name === "projects"
+              ? project.title
+              : titleFont(name),
+          to: "/" + [...previous.map(({ name }) => name), name].join("/"),
+        },
+      ],
+      []
+    );
+
   return (
     <Wrapper className={className} {...props}>
-      {names?.length > 0 &&
-        names.map((item) => item[0].toUpperCase() + item.substring(1))}
+      {names.map(({ name, display, to }, index) => (
+        <Fragment key={name}>
+          {index > 0 && <Arrow src={imageArrow}></Arrow>}
+          <Name to={to}>{display}</Name>
+        </Fragment>
+      ))}
     </Wrapper>
   );
 };

@@ -9,6 +9,7 @@ const Wrapper = styled.input`
 
 const Input = ({
   className,
+  value,
   setValue = () => {},
   onChange = () => {},
   ...props
@@ -21,6 +22,7 @@ const Input = ({
   return (
     <Wrapper
       className={className}
+      value={value}
       onChange={onChangeIntercept}
       {...props}
     ></Wrapper>

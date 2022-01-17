@@ -6,8 +6,9 @@ import styled from "styled-components";
 const Wrapper = styled(ButtonModalForm)``;
 
 const CreateProject = ({ className, ...props }) => {
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   return (
     <Wrapper
       className={className}
@@ -16,9 +17,16 @@ const CreateProject = ({ className, ...props }) => {
       directory="/project-create"
       {...props}
     >
-      <FormField label="Title" required setValue={setTitle} value={title} />
+      <FormField
+        label="Title"
+        required
+        value={title}
+        setValue={setTitle}
+        value={title}
+      />
       <FormField
         label="Description"
+        value={description}
         setValue={setDescription}
         value={description}
       />

@@ -13,6 +13,7 @@ const ButtonModalForm = ({
   className,
   Button = ButtonDefault,
   Modal = ModalDefault,
+  title,
   ...props
 }) => {
   const [open, setOpen] = useState();
@@ -21,8 +22,8 @@ const ButtonModalForm = ({
   };
   return (
     <Wrapper className={className}>
-      <Button onClick={onClick}>Create a project</Button>
-      <ModalForm open={open} setOpen={setOpen} {...props} />
+      <Button onClick={onClick}>{title}</Button>
+      <ModalForm title={title} open={open} setOpen={setOpen} {...props} />
     </Wrapper>
   );
 };

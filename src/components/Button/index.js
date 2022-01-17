@@ -1,6 +1,7 @@
+import Link from "components/Link";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   padding: 10px;
   cursor: pointer;
   user-select: none;
@@ -13,8 +14,8 @@ const Wrapper = styled.div`
   }
 `;
 
-const Button = ({ className, ...props }) => {
-  return <Wrapper className={className} {...props}></Wrapper>;
+const Button = ({ className, to = "#", ...props }) => {
+  return <Wrapper className={className} to={to} {...props}></Wrapper>;
 };
 
 export default Button;

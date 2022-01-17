@@ -1,3 +1,4 @@
+import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useState } from "react";
 import styled from "styled-components";
@@ -22,26 +23,20 @@ const Error = styled.div`
   width: 200px;
 `;
 
-const Form = ({
-  className,
-  children,
-  body,
-  directory,
-  handleResponse,
-  ...props
-}) => {
+const Form = ({ className, children, body, directory, onSubmit, ...props }) => {
   const [error, setError] = useState();
 
   const { post } = useRequest();
 
-  const onSubmit = async (event) => {
+  const onSubmitIntercept = async (event) => {
     event.preventDefault();
     const { json, text } = await post(directory, body);
     setError(text || undefined);
+    onSubmit(event);
   };
 
   return (
-    <Wrapper {...props} onSubmit={onSubmit}>
+    <Wrapper {...props} onSubmit={onSubmitIntercept}>
       <Content className={className}>{children}</Content>
       {error && <Error>Error: {error}</Error>}
       <Submit />

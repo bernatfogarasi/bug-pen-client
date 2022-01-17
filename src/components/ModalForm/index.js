@@ -4,10 +4,26 @@ import styled from "styled-components";
 
 const Wrapper = styled(Modal)``;
 
-const ModalForm = ({ className, children, body, directory, ...props }) => {
+const ModalForm = ({
+  className,
+  children,
+  body,
+  directory,
+  setOpen,
+  ...props
+}) => {
+  const onSubmit = () => {
+    console.log("submit");
+    setOpen(false);
+  };
   return (
-    <Wrapper {...props}>
-      <Form className={className} body={body} directory={directory}>
+    <Wrapper setOpen={setOpen} {...props}>
+      <Form
+        className={className}
+        body={body}
+        directory={directory}
+        onSubmit={onSubmit}
+      >
         {children}
       </Form>
     </Wrapper>

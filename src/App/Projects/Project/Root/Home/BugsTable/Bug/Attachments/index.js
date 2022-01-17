@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import TableCell from "components/TableCell";
-import ModalAttachments from "components/ModalAttachments";
 import { useState } from "react";
 
 const Wrapper = styled(TableCell)`
@@ -16,8 +15,7 @@ const Attachments = ({ className, attachments = [1, 2, 3], ...props }) => {
 
   return attachments?.length ? (
     <Wrapper className={className} {...props} onClick={onClick}>
-      <ModalAttachments open={open} setOpen={setOpen} />
-      {attachments.length}
+      Attachments
     </Wrapper>
   ) : (
     "-"

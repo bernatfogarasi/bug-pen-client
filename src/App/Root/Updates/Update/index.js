@@ -1,28 +1,25 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
-  gap: 20px;
+  display: contents;
 `;
 
-const Date = styled.div``;
+const Date = styled.div`
+  font-size: 12px;
+`;
 
 const Title = styled.div``;
 
-const Description = styled.div``;
+const Description = styled.div`
+  font-size: 12px;
+`;
 
-const Update = ({
-  className,
-  date = "-",
-  title = "-",
-  description = "-",
-  ...props
-}) => {
+const Update = ({ className, update, index, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
-      <Date>{date}</Date>
-      <Title>{title}</Title>
-      <Description>{description}</Description>
+      <Date>{update.date}</Date>
+      <Title>{update.title}</Title>
+      <Description>{update.description}</Description>
     </Wrapper>
   );
 };

@@ -9,17 +9,17 @@ const Wrapper = styled.div`
 `;
 
 const First = styled.div`
-  font-size: 1.5vw;
+  font-size: min(1.5vw, 12px);
   opacity: 0.5;
 `;
 
 const Second = styled.div`
-  font-size: 2vw;
+  font-size: min(2vw, 16px);
   opacity: 0.9;
 `;
 
 const Third = styled.div`
-  font-size: 3vw;
+  font-size: min(3vw, 24px);
 `;
 
 const Welcome = ({ className, ...props }) => {

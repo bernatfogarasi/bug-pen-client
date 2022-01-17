@@ -6,18 +6,25 @@ import Updates from "./Updates";
 import Welcome from "./Welcome";
 
 const Wrapper = styled(Page)`
-  display: flex;
-  gap: 50px;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  @media (min-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+  grid-auto-rows: min-content;
+  gap: 50px 20px;
   align-items: center;
+  padding: 20px;
 `;
 
 const Root = ({ className, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
+      <Members />
       <Welcome />
       <Illustration />
-      <Members />
       <Updates />
     </Wrapper>
   );

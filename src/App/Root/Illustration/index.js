@@ -3,6 +3,7 @@ import image from "assets/illustrations/bug_fixing.svg";
 
 const Wrapper = styled.img`
   width: 60%;
+  max-width: 500px;
 `;
 
 const Illustration = ({ className, ...props }) => {

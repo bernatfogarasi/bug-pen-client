@@ -9,11 +9,18 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const FormField = ({ className, label, required, setValue, ...props }) => {
+const FormField = ({
+  className,
+  label,
+  required,
+  value,
+  setValue,
+  ...props
+}) => {
   return (
     <Wrapper className={className}>
       <Label required={required}>{label}</Label>
-      <Input required={required} setValue={setValue} {...props} />
+      <Input required={required} value={value} setValue={setValue} {...props} />
     </Wrapper>
   );
 };

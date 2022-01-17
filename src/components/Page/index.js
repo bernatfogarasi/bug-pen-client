@@ -4,6 +4,8 @@ import Menu from "./Menu";
 // import ModalOpen from "./ModalOpen";
 // import ModalsMinimized from "./ModalsMinimized";
 import TopBar from "./TopBar";
+import Hint from "./Hint";
+import useApp from "hooks/useApp";
 
 const Wrapper = styled.div`
   display: grid;
@@ -16,10 +18,12 @@ const Wrapper = styled.div`
 `;
 
 const Page = ({ className, children, ...props }) => {
+  const { hint } = useApp();
   return (
     <Wrapper {...props}>
       <Menu />
       <TopBar />
+      {hint && <Hint />}
       <Content className={className}>{children}</Content>
       {/* <ModalOpen />
       <ModalsMinimized /> */}
