@@ -12,11 +12,11 @@ const tagsDefault = [
   },
   {
     text: "testing",
-    style: { color: "#fff", background: "#3D348B" },
+    style: {},
   },
   {
     text: "stuck",
-    style: { color: "#fff", borderColor: "red", background: "red" },
+    style: { color: "#fff", background: "red" },
   },
   {
     text: "closed",
@@ -28,13 +28,18 @@ const tagsDefault = [
   },
 ];
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+`;
 
-const Tags = ({ className, ...props }) => {
-  const tag = tagsDefault[2];
+const Tags = ({ className, indexes, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
-      <BugTag tag={tag} />
+      {indexes.map((index) => (
+        <BugTag key={index} tag={tagsDefault[index]} />
+      ))}
     </Wrapper>
   );
 };

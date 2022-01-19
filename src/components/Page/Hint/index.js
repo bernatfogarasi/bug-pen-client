@@ -14,11 +14,9 @@ const Wrapper = styled.div`
 const Hint = ({ className, ...props }) => {
   const { hint } = useApp();
 
-  const [message, type] = Object.isObject(hint) ? hint : [hint, undefined];
-
   return (
     <Wrapper className={className} {...props}>
-      {message}
+      {hint.message}
     </Wrapper>
   );
 };

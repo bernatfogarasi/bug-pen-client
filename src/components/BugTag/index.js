@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  border-radius: 4px;
-  text-align: center;
   padding: 2px 10px;
-  min-width: 80px;
-  border-radius: 100px;
-  font-size: 14px;
-  border: 2px solid transparent;
-  box-sizing: border-box;
+  white-space: nowrap;
+  border-radius: 10px;
+  font-size: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  background: #eee;
+  color: black;
 `;
 
 const BugTag = ({ className, tag, ...props }) => {

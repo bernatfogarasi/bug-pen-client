@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const Wrapper = styled.div``;
 
-const Priority = ({ className, ...props }) => {
+const Boolean = ({ className, value, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
-      Priority
+      {value ? "Yes" : "No"}
     </Wrapper>
   );
 };
 
-export default Priority;
+export default Boolean;
