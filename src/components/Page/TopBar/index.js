@@ -4,6 +4,9 @@ import Profile from "./Profile";
 import Refresh from "./Refresh";
 import CreateProjectRaw from "components/CreateProject";
 import ReportBug from "components/ReportBug";
+import Login from "components/Login";
+import { useAuth0 } from "@auth0/auth0-react";
+import AddMember from "./AddMember";
 
 const Wrapper = styled.div`
   grid-row: 1;
@@ -21,14 +24,33 @@ const CreateProject = styled(CreateProjectRaw)`
   flex-shrink: 0;
 `;
 
-const TopBar = ({ className, ...props }) => {
+const TopBar = ({
+  className,
+  createProject,
+  reportBug,
+  me,
+  add,
+  login = true,
+  refresh = true,
+  profile = true,
+  breadcrumbs = true,
+  ...props
+}) => {
+  const { isAuthenticated } = useAuth0();
   return (
     <Wrapper className={className} {...props}>
-      <Breadcrumbs />
-      <CreateProject />
-      <ReportBug />
-      <Refresh />
-      <Profile />
+      {breadcrumbs && <Breadcrumbs />}
+      {isAuthenticated ? (
+        <>
+          {createProject && <CreateProject />}
+          {reportBug && <ReportBug />}
+          {add && <AddMember />}
+          {refresh && <Refresh />}
+        </>
+      ) : (
+        login && <Login />
+      )}
+      {profile && <Profile />}
     </Wrapper>
   );
 };

@@ -4,14 +4,14 @@ import styled from "styled-components";
 import Member from "./Member";
 
 const Wrapper = styled(Section)`
-  display: grid;
+  /* display: grid;
   grid-template-columns: auto auto;
   @media (min-width: 800px) {
     grid-template-columns: auto auto auto;
   }
   @media (min-width: 100px) {
     grid-template-columns: auto auto auto auto;
-  }
+  } */
 `;
 
 const Members = ({ className, ...props }) => {

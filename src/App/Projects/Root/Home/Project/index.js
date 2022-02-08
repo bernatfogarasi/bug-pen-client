@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled(Link)`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: min-content auto auto;
   height: 200px;
   border: 1px solid;
   border-radius: 4px;
@@ -52,9 +52,8 @@ const Color = styled.div`
   background: #00bfa6;
   margin: -10px;
   margin-right: 10px;
+  width: 20px;
 `;
-
-const members = ["John", "Emily", "Adam", "Ben", "David"];
 
 const Project = ({ className, project, ...props }) => {
   return (
@@ -66,11 +65,7 @@ const Project = ({ className, project, ...props }) => {
       <Color />
       <Type>Project</Type>
       <Title>{project.title}</Title>
-      <Members>
-        {members.length > 4
-          ? `${members.slice(0, 3).join(", ")} + ${members.length - 3} others`
-          : members.join(", ")}
-      </Members>
+      <Members>Members: {project.memberCount}</Members>
       <Creator>Created by you</Creator>
     </Wrapper>
   );

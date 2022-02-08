@@ -42,7 +42,15 @@ const Content = styled.div`
   animation: 0.2s grow;
 `;
 
-const Button = ({ className, children, image, src, to = "#", ...props }) => {
+const Button = ({
+  className,
+  children,
+  image,
+  src,
+  to = "#",
+  title,
+  ...props
+}) => {
   const { menuIsOpen } = useApp();
 
   const menuIsOpenDelayed = useDelay(menuIsOpen, 200);
@@ -52,10 +60,11 @@ const Button = ({ className, children, image, src, to = "#", ...props }) => {
       className={className}
       to={to}
       open={menuIsOpen && menuIsOpenDelayed}
+      title={menuIsOpen ? "" : title}
       {...props}
     >
       {image || <Image src={src} open={menuIsOpen && menuIsOpenDelayed} />}
-      {menuIsOpen && menuIsOpenDelayed && <Content>{children}</Content>}
+      {menuIsOpen && menuIsOpenDelayed && <Content>{title}</Content>}
     </Wrapper>
   );
 };

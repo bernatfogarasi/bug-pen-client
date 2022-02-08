@@ -2,6 +2,7 @@ import styled from "styled-components";
 import image from "assets/icons/refresh.png";
 import useApp from "hooks/useApp";
 import useHint from "hooks/useHint";
+import { useEffect } from "react";
 
 const Wrapper = styled.img`
   padding: 10px;
@@ -24,9 +25,13 @@ const Refresh = ({ className, onClick = () => {}, ...props }) => {
 
   const { setHint } = useHint();
 
-  const onClickIntercept = (event) => {
+  const increment = () => {
     setRefresh((count) => count + 1);
     setHint("Refreshing...");
+  };
+
+  const onClickIntercept = (event) => {
+    increment();
     onClick(event);
   };
 

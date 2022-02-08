@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import image from "assets/illustrations/blank_canvas.svg";
 import Page from "components/Page";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Wrapper = styled(Page)`
   display: flex;
@@ -22,9 +23,15 @@ const EmptyImage = styled.img`
 `;
 
 const Empty = ({ className, ...props }) => {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <Wrapper className={className} {...props}>
-      <EmptyText>You do not have any projects yet.</EmptyText>
+      <EmptyText>
+        {isAuthenticated
+          ? "You do not have any projects yet."
+          : "Please log in to create a project."}
+      </EmptyText>
       <EmptyImage src={image} />
     </Wrapper>
   );

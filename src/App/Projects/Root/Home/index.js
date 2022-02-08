@@ -19,7 +19,7 @@ const Home = ({ className, ...props }) => {
   const { projects } = useApp();
 
   return (
-    <Wrapper className={className} {...props}>
+    <Wrapper className={className} createProject {...props}>
       {projects.map((project) => (
         <Project key={project.id} project={project} />
       ))}

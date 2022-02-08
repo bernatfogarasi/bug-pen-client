@@ -15,6 +15,7 @@ const Wrapper = styled(Button)`
     color: white;
   }
   cursor: pointer;
+  box-sizing: border-box;
 `;
 
 const ButtonAnimated = ({ className, children, ...props }) => {

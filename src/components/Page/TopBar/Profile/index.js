@@ -1,14 +1,31 @@
 import styled from "styled-components";
-import ProfilePictureRaw from "components/ProfilePicture";
-import { Link } from "react-router-dom";
+import ProfilePicture from "components/ProfilePicture";
+import { useAuth0 } from "@auth0/auth0-react";
+import Link from "components/Link";
+import useApp from "hooks/useApp";
 
-const ProfilePicture = styled(ProfilePictureRaw)``;
+const Wrapper = styled(Link)``;
+
+const Image = styled(ProfilePicture)``;
 
 const Profile = ({ className, ...props }) => {
+  const { user, isAuthenticated, loginWithPopup } = useAuth0();
+
+  const { me } = useApp();
+
+  const onClick = () => {
+    if (!isAuthenticated) loginWithPopup({ prompt: "select_account" });
+  };
+
   return (
-    <Link className={className} to="/profiles/me" {...props}>
-      <ProfilePicture />
-    </Link>
+    <Wrapper
+      className={className}
+      to={isAuthenticated ? `/profiles/${me?.userId}` : "#"}
+      onClick={onClick}
+      {...props}
+    >
+      <Image src={user?.picture} />
+    </Wrapper>
   );
 };
 

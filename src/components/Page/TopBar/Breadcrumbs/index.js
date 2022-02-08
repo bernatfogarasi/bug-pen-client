@@ -4,6 +4,7 @@ import styled from "styled-components";
 import imageArrow from "assets/icons/arrow2.png";
 import Link from "components/Link";
 import { titleFont } from "functions/text";
+import LoaderDots from "components/LoaderDots";
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ const Arrow = styled.img`
 `;
 
 const Breadcrumbs = ({ className, ...props }) => {
-  const { project } = useApp();
+  const { project, profile } = useApp();
   const names = window.location.pathname
     .split("/")
     .filter((name) => name)
@@ -39,7 +40,9 @@ const Breadcrumbs = ({ className, ...props }) => {
           name,
           display:
             previous?.at(-1)?.name === "projects"
-              ? project.title
+              ? project?.title
+              : previous?.at(-1)?.name === "profiles"
+              ? profile?.name
               : titleFont(name),
           to: "/" + [...previous.map(({ name }) => name), name].join("/"),
         },
@@ -52,7 +55,7 @@ const Breadcrumbs = ({ className, ...props }) => {
       {names.map(({ name, display, to }, index) => (
         <Fragment key={name}>
           {index > 0 && <Arrow src={imageArrow}></Arrow>}
-          <Name to={to}>{display}</Name>
+          <Name to={to}>{display || <LoaderDots />}</Name>
         </Fragment>
       ))}
     </Wrapper>

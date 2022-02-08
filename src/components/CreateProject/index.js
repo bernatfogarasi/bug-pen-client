@@ -18,6 +18,7 @@ const CreateProject = ({ className, ...props }) => {
       {...props}
     >
       <FormField
+        focus
         label="Title"
         required
         value={title}

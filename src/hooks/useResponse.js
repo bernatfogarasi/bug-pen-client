@@ -1,12 +1,23 @@
 import useApp from "./useApp";
 
 const useResponse = () => {
-  const { setProjects, setProject, setMembershipCount } = useApp();
+  const {
+    setProjects,
+    setProject,
+    setMembershipsCount,
+    setProfiles,
+    setProfile,
+    setMe,
+  } = useApp();
+
   const save = (json) => {
     const methods = {
       projects: setProjects,
       project: setProject,
-      membershipCount: setMembershipCount,
+      membershipsCount: setMembershipsCount,
+      profiles: setProfiles,
+      profile: setProfile,
+      me: setMe,
     };
 
     Object.entries(json).map(([key, value]) => {

@@ -1,10 +1,12 @@
 import styled, { css } from "styled-components";
 import Button from "./Button";
-import imageProjects from "assets/icons/projects.png";
+import imageProjects from "assets/icons/projects2.png";
 import imageProfiles from "assets/icons/profiles.png";
+import imageProfile from "assets/icons/profile2.png";
 import imageHome from "assets/icons/house.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import useApp from "hooks/useApp";
+import Logout from "./Logout";
 
 const Wrapper = styled.div`
   grid-row: 2;
@@ -15,19 +17,15 @@ const Wrapper = styled.div`
 `;
 
 const Buttons = ({ className, ...props }) => {
-  const { user } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   const { menuIsOpen } = useApp();
   return (
     <Wrapper className={className} open={menuIsOpen} {...props}>
-      <Button to="/" src={imageHome}>
-        Home
-      </Button>
-      <Button to="/projects" src={imageProjects}>
-        Projects
-      </Button>
-      <Button to="/connections" src={imageProfiles}>
-        Connections
-      </Button>
+      <Button to="/" title="Home" src={imageHome} />
+      <Button to="/projects" title="Projects" src={imageProjects} />
+      <Button to="/connections" title="Connections" src={imageProfiles} />
+      <Button to="/profiles" title="Profiles" src={imageProfile} />
+      {isAuthenticated ? <Logout /> : null}
     </Wrapper>
   );
 };

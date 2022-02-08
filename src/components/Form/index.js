@@ -1,6 +1,6 @@
-import useApp from "hooks/useApp";
+import LoaderDots from "components/LoaderDots";
 import useRequest from "hooks/useRequest";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Submit from "./Submit";
 
@@ -23,23 +23,29 @@ const Error = styled.div`
   width: 200px;
 `;
 
+const Loader = styled(LoaderDots)`
+  margin-left: auto;
+`;
+
 const Form = ({ className, children, body, directory, onSubmit, ...props }) => {
   const [error, setError] = useState();
+  const [loading, setLoading] = useState();
 
   const { post } = useRequest();
 
   const onSubmitIntercept = async (event) => {
     event.preventDefault();
-    const { json, text } = await post(directory, body);
+    setLoading(true);
+    const { text } = await post(directory, body, () => setLoading(false));
     setError(text || undefined);
     onSubmit(event);
   };
 
   return (
-    <Wrapper {...props} onSubmit={onSubmitIntercept}>
+    <Wrapper onSubmit={onSubmitIntercept} {...props}>
       <Content className={className}>{children}</Content>
       {error && <Error>Error: {error}</Error>}
-      <Submit />
+      {loading ? <Loader /> : <Submit />}
     </Wrapper>
   );
 };

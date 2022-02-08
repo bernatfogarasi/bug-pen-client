@@ -1,7 +1,8 @@
-import Section from "components/Section";
+import LoaderDots from "components/LoaderDots";
+import LoadingPage from "components/LoadingPage";
 import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -17,18 +18,20 @@ const Title = styled.div``;
 const Count = styled.div``;
 
 const Members = ({ className, ...props }) => {
-  const { membershipCount, refresh } = useApp();
-
+  const { membershipsCount, refresh } = useApp();
+  const [loading, setLoading] = useState(true);
   const { get } = useRequest();
 
   useEffect(() => {
-    get("/memberships-count");
+    get("/memberships-count", () => setLoading(false));
   }, [refresh]);
 
-  return (
+  return loading ? (
+    <LoaderDots />
+  ) : (
     <Wrapper className={className} {...props}>
       <Title>Membership count:</Title>
-      <Count>{membershipCount}</Count>
+      <Count>{membershipsCount}</Count>
     </Wrapper>
   );
 };

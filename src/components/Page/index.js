@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Content from "./Content";
 import Menu from "./Menu";
-// import ModalOpen from "./ModalOpen";
-// import ModalsMinimized from "./ModalsMinimized";
 import TopBar from "./TopBar";
 import Hint from "./Hint";
 import useApp from "hooks/useApp";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoadingScreen from "components/LoadingScreen";
+import useRequest from "hooks/useRequest";
+import { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
   display: grid;
@@ -18,15 +20,23 @@ const Wrapper = styled.div`
 `;
 
 const Page = ({ className, children, ...props }) => {
-  const { hint } = useApp();
-  return (
-    <Wrapper {...props}>
-      <Menu />
-      <TopBar />
+  const [loadingMe, setLoadingMe] = useState(true);
+  const { hint, me } = useApp();
+  const { isLoading } = useAuth0();
+  const { get } = useRequest();
+
+  useEffect(() => {
+    if (!me) get("/me", () => setLoadingMe(false));
+  }, [me]);
+
+  return isLoading && !me ? (
+    <LoadingScreen />
+  ) : (
+    <Wrapper>
+      <Menu {...props} />
+      <TopBar {...props} />
       {hint && <Hint />}
       <Content className={className}>{children}</Content>
-      {/* <ModalOpen />
-      <ModalsMinimized /> */}
     </Wrapper>
   );
 };

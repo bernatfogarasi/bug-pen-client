@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.input`
@@ -12,6 +13,7 @@ const Input = ({
   value,
   setValue = () => {},
   onChange = () => {},
+  focus,
   ...props
 }) => {
   const onChangeIntercept = (event) => {
@@ -19,11 +21,18 @@ const Input = ({
     onChange(event);
   };
 
+  const ref = useRef();
+
+  useEffect(() => {
+    if (focus) ref?.current?.focus();
+  }, [ref]);
+
   return (
     <Wrapper
       className={className}
       value={value}
       onChange={onChangeIntercept}
+      ref={ref}
       {...props}
     ></Wrapper>
   );
