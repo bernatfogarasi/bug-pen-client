@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BugTag from "components/BugTag";
+import Tag from "components/Tag";
 import TableCell from "components/TableCell";
 
 const tagsDefault = [
@@ -35,7 +35,7 @@ const Tag = ({ className, ...props }) => {
   const tag = tagsDefault[2];
   return (
     <Wrapper className={className} {...props}>
-      <BugTag tag={tag} />
+      <Tag tag={tag} />
     </Wrapper>
   );
 };

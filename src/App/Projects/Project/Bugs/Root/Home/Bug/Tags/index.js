@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BugTag from "components/BugTag";
+import Tag from "components/Tag";
 
 const tagsDefault = [
   {
@@ -38,7 +38,7 @@ const Tags = ({ className, indexes, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
       {indexes.map((index) => (
-        <BugTag key={index} tag={tagsDefault[index]} />
+        <Tag key={index} tag={tagsDefault[index]} />
       ))}
     </Wrapper>
   );

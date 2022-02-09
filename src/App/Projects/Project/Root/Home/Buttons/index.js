@@ -14,7 +14,7 @@ const Buttons = ({ className, ...props }) => {
     <Wrapper className={className} {...props}>
       <Button to={window.location.pathname + "/bugs"}>Bugs</Button>
       <Button to={window.location.pathname + "/members"}>Members</Button>
-      <Button to={window.location.pathname + "/settings"}>Settings</Button>
+      <Button to={window.location.pathname + "/edit"}>Edit</Button>
     </Wrapper>
   );
 };

@@ -15,7 +15,7 @@ const Home = ({ className, ...props }) => {
   const { project } = useApp();
 
   return (
-    <Wrapper className={className} {...props}>
+    <Wrapper className={className} reportBug {...props}>
       {project.bugs
         .slice(-3)
         .map((bug, index) => <Bug key={bug.id} bug={bug} index={index} />)

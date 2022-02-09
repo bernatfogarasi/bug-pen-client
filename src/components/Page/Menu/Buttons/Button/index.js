@@ -23,6 +23,12 @@ const Wrapper = styled(Link)`
           font-size: 0px;
           padding: 20px;
         `}
+  ${({ selected }) =>
+    selected
+      ? css`
+          background: #ccc;
+        `
+      : css``}
 `;
 
 const Image = styled.img`
@@ -55,12 +61,18 @@ const Button = ({
 
   const menuIsOpenDelayed = useDelay(menuIsOpen, 200);
 
+  const selected = Boolean(
+    window.location.pathname === to ||
+      (window.location.pathname.startsWith(to) && to !== "/")
+  );
+
   return (
     <Wrapper
       className={className}
       to={to}
       open={menuIsOpen && menuIsOpenDelayed}
       title={menuIsOpen ? "" : title}
+      selected={selected}
       {...props}
     >
       {image || <Image src={src} open={menuIsOpen && menuIsOpenDelayed} />}

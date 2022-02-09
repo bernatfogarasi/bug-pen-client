@@ -12,6 +12,8 @@ import Connections from "./Connections/Root";
 import Profiles from "./Profiles/Root";
 import Profile from "./Profiles/Profile/Root";
 import Members from "./Projects/Project/Members/Root";
+import Bug from "./Projects/Project/Bugs/Bug/Root";
+import Edit from "./Projects/Project/Edit/Root";
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -68,7 +70,9 @@ const App = ({ className, ...props }) => {
             <Route element={<Projects />} path="/projects" />
             <Route element={<Project />} path="/projects/:projectId" />
             <Route element={<Bugs />} path="/projects/:projectId/bugs" />
+            <Route element={<Bug />} path="/projects/:projectId/bugs/:index" />
             <Route element={<Members />} path="/projects/:projectId/members" />
+            <Route element={<Edit />} path="/projects/:projectId/edit" />
             <Route element={<Connections />} path="/connections" />
             <Route element={<Profiles />} path="/profiles" />
             <Route element={<Profile />} path="/profiles/:userId" />
