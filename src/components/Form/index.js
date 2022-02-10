@@ -1,8 +1,9 @@
-import LoaderDots from "components/LoaderDots";
-import useRequest from "hooks/useRequest";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+
+import LoaderDots from "components/LoaderDots";
 import Submit from "./Submit";
+import styled from "styled-components";
+import useRequest from "hooks/useRequest";
 
 const Wrapper = styled.form`
   display: flex;
@@ -27,7 +28,15 @@ const Loader = styled(LoaderDots)`
   margin-left: auto;
 `;
 
-const Form = ({ className, children, body, directory, onSubmit, ...props }) => {
+const Form = ({
+  className,
+  children,
+  body,
+  directory,
+  onSubmit,
+  submitText,
+  ...props
+}) => {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
 
@@ -45,7 +54,7 @@ const Form = ({ className, children, body, directory, onSubmit, ...props }) => {
     <Wrapper onSubmit={onSubmitIntercept} {...props}>
       <Content className={className}>{children}</Content>
       {error && <Error>Error: {error}</Error>}
-      {loading ? <Loader /> : <Submit />}
+      {loading ? <Loader /> : <Submit submitText={submitText} />}
     </Wrapper>
   );
 };

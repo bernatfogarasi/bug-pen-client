@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Wrapper = styled.div`
   padding: 2px 10px;
@@ -9,14 +9,21 @@ const Wrapper = styled.div`
   border: 1px solid #ccc;
   background: #eee;
   color: black;
+  width: fit-content;
+  ${({ textColor, backgroundColor, borderColor }) =>
+    css`
+      color: ${textColor};
+      background-color: ${backgroundColor};
+      border-color: ${borderColor};
+    `}
 `;
 
-const BugTag = ({ className, tag, ...props }) => {
+const Tag = ({ className, title, ...props }) => {
   return (
-    <Wrapper className={className} style={tag.style} tag={tag} {...props}>
-      {tag.text}
+    <Wrapper className={className} {...props}>
+      {title}
     </Wrapper>
   );
 };
 
-export default BugTag;
+export default Tag;

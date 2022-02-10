@@ -11,12 +11,13 @@ const Edit = ({ className, ...props }) => {
 
   const { project, refresh } = useApp();
 
+  const projectId = window.location.pathname.split("/")[2];
+
   useEffect(() => {
-    const projectId = window.location.pathname.split("/")[2];
     get(`/project-get?projectId=${projectId}`, () => setLoading(false));
   }, [refresh]);
 
-  return loading ? <LoadingPage /> : <Home />;
+  return loading ? <LoadingPage /> : <Home projectId={projectId} />;
 };
 
 export default Edit;

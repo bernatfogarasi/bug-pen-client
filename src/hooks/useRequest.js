@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import useResponse from "hooks/useResponse";
 import useHint from "./useHint";
+import useResponse from "hooks/useResponse";
 
 const useRequest = () => {
   const { user, getAccessTokenSilently, loginWithPopup, isAuthenticated } =
@@ -26,7 +26,7 @@ const useRequest = () => {
     }
   };
 
-  const origin = "http://localhost:8000";
+  const origin = process.env.REACT_APP_SERVER_ORIGIN;
 
   const url = (directory) => origin + directory; // + (directory.includes("?") ? "" : "/");
 

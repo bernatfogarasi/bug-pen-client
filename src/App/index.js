@@ -1,24 +1,29 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import { AppContext } from "context";
+import "styles/fonts/index.css";
+
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
-import styled from "styled-components";
-import GlobalStyle from "styles/globalStyle";
-import Root from "./Root";
-import Projects from "./Projects/Root";
-import Project from "./Projects/Project/Root";
+import { Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import { AppContext } from "context";
+import Bug from "./Projects/Project/Bugs/Bug/Root";
 import Bugs from "./Projects/Project/Bugs/Root";
 import Connections from "./Connections/Root";
-import Profiles from "./Profiles/Root";
-import Profile from "./Profiles/Profile/Root";
-import Members from "./Projects/Project/Members/Root";
-import Bug from "./Projects/Project/Bugs/Bug/Root";
 import Edit from "./Projects/Project/Edit/Root";
+import GlobalStyle from "styles/globalStyle";
+import Members from "./Projects/Project/Members/Root";
+import Profile from "./Profiles/Profile/Root";
+import Profiles from "./Profiles/Root";
+import Project from "./Projects/Project/Root";
+import Projects from "./Projects/Root";
+import Root from "./Root";
+import styled from "styled-components";
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  font-family: MontserratMedium;
+`;
 
 const App = ({ className, ...props }) => {
   const [menuIsOpen, setMenuIsOpen] = useState();
@@ -38,8 +43,8 @@ const App = ({ className, ...props }) => {
       <Auth0Provider
         domain={domain}
         clientId={clientId}
-        redirectUri={"http://localhost:3000"}
-        audience={"http://localhost:8000"}
+        redirectUri={window.location.origin}
+        audience={process.env.REACT_APP_SERVER_ORIGIN}
       >
         <AppContext.Provider
           value={{

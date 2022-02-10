@@ -21,10 +21,10 @@ const Wrapper = styled.button`
   transition: 0.1s;
 `;
 
-const Submit = ({ className, ...props }) => {
+const Submit = ({ className, submitText = "Submit", ...props }) => {
   return (
     <Wrapper className={className} type="submit" {...props}>
-      Submit
+      {submitText}
     </Wrapper>
   );
 };
