@@ -20,7 +20,7 @@ const useResponse = () => {
       me: setMe,
     };
 
-    Object.entries(json).map(([key, value]) => {
+    Object.entries(json).forEach(([key, value]) => {
       const method = methods?.[key];
       if (method) method(value);
     });

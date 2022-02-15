@@ -1,7 +1,7 @@
 import Page from "components/Page";
-import useApp from "hooks/useApp";
-import styled from "styled-components";
 import Project from "./Project";
+import styled from "styled-components";
+import useApp from "hooks/useApp";
 
 const Wrapper = styled(Page)`
   display: grid;

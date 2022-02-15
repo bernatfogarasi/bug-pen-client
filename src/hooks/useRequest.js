@@ -22,7 +22,7 @@ const useRequest = () => {
       //   loginWithPopup();
       // }
       // throw error;
-      console.log("cannot get accessToken");
+      console.log(error);
     }
   };
 

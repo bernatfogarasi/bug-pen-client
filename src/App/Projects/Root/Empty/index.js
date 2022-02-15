@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import image from "assets/illustrations/blank_canvas.svg";
 import Page from "components/Page";
+import image from "assets/illustrations/blank_canvas.svg";
+import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Wrapper = styled(Page)`
@@ -26,7 +26,7 @@ const Empty = ({ className, ...props }) => {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <Wrapper className={className} {...props}>
+    <Wrapper className={className} createProject {...props}>
       <EmptyText>
         {isAuthenticated
           ? "You do not have any projects yet."

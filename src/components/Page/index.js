@@ -1,13 +1,14 @@
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+
 import Content from "./Content";
+import Hint from "./Hint";
+import LoadingScreen from "components/LoadingScreen";
 import Menu from "./Menu";
 import TopBar from "./TopBar";
-import Hint from "./Hint";
+import styled from "styled-components";
 import useApp from "hooks/useApp";
 import { useAuth0 } from "@auth0/auth0-react";
-import LoadingScreen from "components/LoadingScreen";
 import useRequest from "hooks/useRequest";
-import { useEffect, useState } from "react";
 
 const Wrapper = styled.div`
   display: grid;
