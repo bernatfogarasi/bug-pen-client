@@ -1,9 +1,9 @@
-import Link from "components/Link";
-import Text from "components/Text";
-import styled from "styled-components";
 import Assignees from "./Assignees";
 import Attributes from "./Attributes";
+import Link from "components/Link";
 import Tags from "./Tags";
+import Text from "components/Text";
+import styled from "styled-components";
 
 const Wrapper = styled(Link)`
   display: flex;
@@ -56,7 +56,7 @@ const Bug = ({ className, bug, index, ...props }) => {
       <FirstRow>
         <Index>#{bug.index}</Index>
         <Title>{bug.title}</Title>
-        <Tags indexes={[1, 2, 3]} />
+        <Tags tags={bug.tags} />
       </FirstRow>
       <Attributes bug={bug} />
       <Assignees />

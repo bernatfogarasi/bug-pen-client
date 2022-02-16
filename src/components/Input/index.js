@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const Wrapper = styled.input`
-  border: 1px solid #ccc;
+  border: 1px solid #888;
   box-sizing: border-box;
   font-family: inherit;
   padding: 4px;
@@ -15,7 +15,7 @@ const Wrapper = styled.input`
           background: #ccc;
         `
       : css`
-          background: #00bfa6;
+          background: #fff;
         `}
 `;
 

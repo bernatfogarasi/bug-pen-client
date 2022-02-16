@@ -17,6 +17,13 @@ const Wrapper = styled(Page)`
   padding: 10px;
 `;
 
+const Edit = styled(Section)`
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
 const AddTag = styled(Section)`
   padding: 10px;
   display: flex;
@@ -41,31 +48,48 @@ const InputTextArea = styled(InputTextArea_)`
   max-width: 400px;
 `;
 
-const Button = styled(Button_)`
-  border: 1px solid #ccc;
-  width: fit-content;
-  padding: 5px;
-  :active {
-    background: #eee;
-  }
-  margin-top: 20px;
-  margin-left: auto;
-`;
-
 const Home = ({ className, projectId, ...props }) => {
   const { project } = useApp();
 
+  const [title, setTitle] = useState(project.title);
+  const [description, setDescription] = useState(project.description);
   const [newTagTitle, setNewTagTitle] = useState("New tag");
   const [newTagTextColor, setNewTagTextColor] = useState("#000000");
   const [newTagBackgroundColor, setNewTagBackgroundColor] = useState("#eeeeee");
   const [newTagBorderColor, setNewTagBorderColor] = useState("#cccccc");
 
+  const changed = (itemCheck, itemInitial) =>
+    itemCheck === itemInitial || itemCheck === "" ? undefined : itemCheck;
+
+  const changes = {
+    title: changed(title, project.title),
+    description: changed(description, project.description),
+  };
+
   const set = (handler) => (event) => handler(event.target.value);
 
   return (
     <Wrapper className={className} {...props}>
+      <Edit title="Edit project">
+        <Form
+          submitText={"Save"}
+          directory={`/project-edit?projectId=${projectId}`}
+          body={{ ...changes }}
+        >
+          <Separator />
+          <Field label="Title">
+            <InputText value={title} onChange={set(setTitle)} />
+          </Field>
+          <Separator />
+          <Field label="Description">
+            <InputTextArea value={description} onChange={set(setDescription)} />
+          </Field>
+          <Separator />
+        </Form>
+      </Edit>
       <AddTag title="Add a tag">
         <Form
+          submitText={"Add"}
           directory={`/tag-create?projectId=${projectId}`}
           body={{
             title: newTagTitle,

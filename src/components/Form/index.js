@@ -35,6 +35,7 @@ const Form = ({
   directory,
   onSubmit,
   submitText,
+  disabled,
   ...props
 }) => {
   const [error, setError] = useState();
@@ -54,7 +55,11 @@ const Form = ({
     <Wrapper onSubmit={onSubmitIntercept} {...props}>
       <Content className={className}>{children}</Content>
       {error && <Error>Error: {error}</Error>}
-      {loading ? <Loader /> : <Submit submitText={submitText} />}
+      {loading ? (
+        <Loader />
+      ) : (
+        <Submit disabled={disabled} submitText={submitText} />
+      )}
     </Wrapper>
   );
 };

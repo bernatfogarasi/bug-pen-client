@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const Wrapper = styled.textarea`
-  border: 1px solid #ccc;
+  border: 1px solid #888;
   font-family: inherit;
   padding: 4px;
   box-sizing: border-box;
@@ -17,7 +17,7 @@ const Wrapper = styled.textarea`
           background: #ccc;
         `
       : css`
-          background: #00bfa6;
+          background: #fff;
         `}
   resize: none;
 `;

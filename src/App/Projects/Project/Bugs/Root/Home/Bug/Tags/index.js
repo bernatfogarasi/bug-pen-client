@@ -1,32 +1,5 @@
-import styled from "styled-components";
 import Tag from "components/Tag";
-
-const tagsDefault = [
-  {
-    text: "unstarted",
-    style: { color: "black", borderColor: "grey", backgroundColor: "yellow" },
-  },
-  {
-    text: "in progress",
-    style: { color: "#fff", borderColor: "grey", backgroundColor: "blue" },
-  },
-  {
-    text: "testing",
-    style: {},
-  },
-  {
-    text: "stuck",
-    style: { color: "#fff", background: "red" },
-  },
-  {
-    text: "closed",
-    style: {
-      color: "black",
-      borderColor: "lightgrey",
-      background: "lightgrey",
-    },
-  },
-];
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,11 +7,11 @@ const Wrapper = styled.div`
   margin-left: auto;
 `;
 
-const Tags = ({ className, indexes, ...props }) => {
+const Tags = ({ className, tags, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
-      {indexes.map((index) => (
-        <Tag key={index} tag={tagsDefault[index]} />
+      {tags.map((tag) => (
+        <Tag key={tag.id} {...tag} />
       ))}
     </Wrapper>
   );

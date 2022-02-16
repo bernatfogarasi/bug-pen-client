@@ -1,8 +1,9 @@
-import useRequest from "hooks/useRequest";
-import useApp from "hooks/useApp";
 import { useEffect, useState } from "react";
-import LoadingPage from "components/LoadingPage";
+
 import Home from "./Home";
+import LoadingPage from "components/LoadingPage";
+import useApp from "hooks/useApp";
+import useRequest from "hooks/useRequest";
 
 const Bug = ({ className, ...props }) => {
   const [loading, setLoading] = useState(true);
@@ -11,18 +12,21 @@ const Bug = ({ className, ...props }) => {
 
   const { get } = useRequest();
 
+  const projectId = window.location.pathname.split("/")[2];
+
   useEffect(() => {
-    get(
-      `/project-get?projectId=${window.location.pathname.split("/")[2]}`,
-      () => setLoading(false)
-    );
+    get(`/project-get?projectId=${projectId}`, () => setLoading(false));
   }, [refresh]);
 
   const index = Number(window.location.pathname.split("/")[4]);
 
   const bug = project?.bugs?.filter((bug) => bug.index === index)[0];
 
-  return loading || !bug ? <LoadingPage /> : <Home bug={bug} />;
+  return loading || !bug ? (
+    <LoadingPage />
+  ) : (
+    <Home bug={bug} projectId={projectId} />
+  );
 };
 
 export default Bug;

@@ -2,6 +2,7 @@ import ButtonSmall from "components/ButtonSmall";
 import Link from "components/Link";
 import Tag__ from "components/Tag";
 import styled from "styled-components";
+import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useState } from "react";
 
@@ -26,16 +27,18 @@ const Tag_ = styled(Tag__)`
 
 const Remove = styled(ButtonSmall)``;
 
-const Tag = ({ className, tag, index, ...props }) => {
+const Tag = ({ className, tag, index, bug, ...props }) => {
   const { post } = useRequest();
+
+  const { project } = useApp();
 
   const [loading, setLoading] = useState(false);
 
   const onRemove = () => {
     setLoading(true);
-    const projectId = window.location.pathname.split("/")[2];
-    post(`/tag-remove?projectId=${projectId}&tagId=${tag.id}`, () =>
-      setLoading(false)
+    post(
+      `/mark-remove?projectId=${project.projectId}&bugId=${bug.id}&tagId=${tag.id}`,
+      () => setLoading(false)
     );
   };
 
@@ -43,9 +46,6 @@ const Tag = ({ className, tag, index, ...props }) => {
     <Wrapper className={className} {...props}>
       {/* {index + 1} */}
       <Tag_ {...tag} />
-      <Text>Created by</Text>
-      <Name to={`/profiles/${tag.creator.userId}`}>{tag.creator.name}</Name>
-      <Text> at {tag.createdAt.substring(0, 16).replace("T", " ")}.</Text>
       <Remove loading={loading} onClick={onRemove}>
         Remove
       </Remove>

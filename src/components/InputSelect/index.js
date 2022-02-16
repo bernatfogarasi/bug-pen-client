@@ -3,7 +3,7 @@ import Select from "components/Select";
 import styled from "styled-components";
 
 const Wrapper = styled(Select)`
-  background: #00bfa6;
+  background: #fff;
   border: 1px solid #ccc;
   font-size: 18px;
   font-family: inherit;
