@@ -38,14 +38,6 @@ const Title = styled(Text)`
   margin-left: 0;
 `;
 
-const Description = styled(Text)`
-  grid-row: 2;
-  grid-column: 2;
-  word-wrap: break-word;
-  max-height: 100px;
-  font-size: 12px;
-`;
-
 const Bug = ({ className, bug, index, ...props }) => {
   return (
     <Wrapper
@@ -59,7 +51,7 @@ const Bug = ({ className, bug, index, ...props }) => {
         <Tags tags={bug.tags} />
       </FirstRow>
       <Attributes bug={bug} />
-      <Assignees />
+      <Assignees bug={bug} />
       {/* <Description>{bug.description}</Description> */}
     </Wrapper>
   );

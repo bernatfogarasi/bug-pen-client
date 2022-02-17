@@ -1,7 +1,5 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import styled from "styled-components";
 import imageProfile from "assets/icons/profile.png";
-import Link from "components/Link";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   border-radius: 50%;
@@ -13,7 +11,6 @@ const Wrapper = styled.div`
 `;
 
 const ProfilePicture = ({ className, src, ...props }) => {
-  const { user } = useAuth0();
   return (
     <Wrapper
       className={className}

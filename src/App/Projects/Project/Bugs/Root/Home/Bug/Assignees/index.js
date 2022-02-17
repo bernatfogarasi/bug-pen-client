@@ -1,12 +1,39 @@
+import Link from "components/Link";
+import ProfilePicture from "components/ProfilePicture";
 import styled from "styled-components";
-import Assignee from "./Assignee";
 
 const Wrapper = styled.div``;
 
-const Assignees = ({ className, children, ...props }) => {
+const Name = styled(Link)`
+  text-decoration: underline;
+  color: #00bfa6;
+`;
+
+const Content = styled.div``;
+
+const Assignees = ({ className, children, bug, ...props }) => {
+  const onMouseOver = (event) => {
+    event.stopPropagation();
+  };
   return (
     <Wrapper className={className} {...props}>
-      Assigned to: {children}
+      {bug.assignees?.length ? (
+        <>
+          Assigned to:
+          <Content>
+            {bug.assignees.map((assignee) => (
+              <Name
+                to={`/profiles/${assignee.userId}`}
+                onMouseOver={onMouseOver}
+              >
+                {assignee.name}
+              </Name>
+            ))}
+          </Content>
+        </>
+      ) : (
+        <>Not assigned</>
+      )}
     </Wrapper>
   );
 };

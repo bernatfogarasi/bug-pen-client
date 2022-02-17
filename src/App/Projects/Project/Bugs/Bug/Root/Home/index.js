@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import Assignees from "./Assignees";
 import Attributes from "components/Attributes";
 import Field_ from "components/Field";
 import Form from "components/Form";
@@ -8,7 +9,6 @@ import InputFile_ from "components/InputFile";
 import InputSelect from "components/InputSelect";
 import InputTextArea_ from "components/InputTextArea";
 import InputText_ from "components/InputText";
-import Json from "components/Json";
 import Page from "components/Page";
 import Section_ from "components/Section";
 import Tags from "./Tags";
@@ -33,8 +33,6 @@ const Section = styled(Section_)`
 const Edit = styled(Section)``;
 
 const Attachments = styled(Section)``;
-
-const Assignees = styled(Section)``;
 
 const AddTag = styled(Section)``;
 
@@ -98,6 +96,10 @@ const Home = ({ className, bug, projectId, ...props }) => {
   useEffect(() => {
     setTag(tagsAvailable?.[0]);
   }, [tagsAvailable]);
+
+  useEffect(() => {
+    setAssignee(assigneesAvailable?.[0]);
+  }, [assigneesAvailable]);
 
   const changed = (itemCheck, itemInitial) =>
     itemCheck === itemInitial || itemCheck === "" ? undefined : itemCheck;
@@ -193,6 +195,7 @@ const Home = ({ className, bug, projectId, ...props }) => {
           <Separator />
         </Form>
       </AddAssignee>
+      <Assignees bug={bug} />
       <AddTag title="Add a tag">
         <Separator />
         <Form
