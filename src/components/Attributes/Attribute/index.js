@@ -1,10 +1,12 @@
-import { titleFont } from "functions/text";
 import styled from "styled-components";
+import { titleFont } from "functions/text";
 
 const Wrapper = styled.div`
   display: flex;
   background: white;
   padding: 10px;
+  /* box-shadow: 0 0 0 10px palegreen; */
+  outline: 1px solid #ccc;
 `;
 
 const Text = styled.div`

@@ -1,5 +1,4 @@
 import Section from "components/Section";
-import Separator from "components/Separator";
 import Tag from "./Tag";
 import styled from "styled-components";
 import useApp from "hooks/useApp";
@@ -19,11 +18,7 @@ const Tags = ({ className, ...props }) => {
       {project.tags
         .sort((tag1, tag2) => (tag1.title > tag2.title ? 1 : -11))
         .map((tag, index) => (
-          <>
-            {index === 0 ? <Separator /> : null}
-            <Tag key={tag.id} tag={tag} index={index} />
-            <Separator />
-          </>
+          <Tag key={tag.id} tag={tag} index={index} />
         ))}
     </Wrapper>
   );

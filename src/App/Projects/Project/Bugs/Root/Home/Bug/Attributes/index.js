@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   gap: 5px;
   align-items: center;
 `;
@@ -21,8 +21,7 @@ const Attributes = ({ className, bug, ...props }) => {
         <Scale index={bug.urgency} />
       </Attribute>
       <Attribute label="reproducible">
-        <Boolean>{bug.reproducible}</Boolean>
-        {console.log(bug.reproducible)}
+        <Boolean value={bug.reproducible} />
       </Attribute>
       <Attribute label="reporter">{bug.reporter.name}</Attribute>
     </Wrapper>

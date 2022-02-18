@@ -52,6 +52,7 @@ const useRequest = () => {
       if (callback) callback({ response, status: response.status, json });
       return { json };
     }
+    return response;
   };
 
   const get = async (directory, callback) => {
@@ -85,7 +86,31 @@ const useRequest = () => {
     return response;
   };
 
-  return { get, post };
+  const postFiles = async (directory, files, callback) => {
+    var data = new FormData();
+    for (var i = 0; i < files.length; i++) {
+      data.append(i, files[i], files[i].name);
+    }
+    // console.log(data.get("files"));
+    // callback();
+    // return;
+    const accessToken = await getAccessToken();
+    const response = await request(
+      url(directory),
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: data,
+        redirect: "follow",
+      },
+      callback
+    );
+    return response;
+  };
+
+  return { get, post, postFiles };
 };
 
 export default useRequest;

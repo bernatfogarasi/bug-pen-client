@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Assignees from "./Assignees";
+import Attachments from "./Attachments";
 import Attributes from "components/Attributes";
 import Field_ from "components/Field";
 import Form from "components/Form";
@@ -9,12 +10,14 @@ import InputFile_ from "components/InputFile";
 import InputSelect from "components/InputSelect";
 import InputTextArea_ from "components/InputTextArea";
 import InputText_ from "components/InputText";
+import Json from "components/Json";
 import Page from "components/Page";
 import Section_ from "components/Section";
 import Tags from "./Tags";
 import styled from "styled-components";
 import useApp from "hooks/useApp";
-import { useFileUpload } from "use-file-upload";
+
+// import { useFileUpload } from "use-file-upload";
 
 const Wrapper = styled(Page)`
   display: flex;
@@ -32,7 +35,7 @@ const Section = styled(Section_)`
 
 const Edit = styled(Section)``;
 
-const Attachments = styled(Section)``;
+const Attach = styled(Section)``;
 
 const AddTag = styled(Section)``;
 
@@ -43,12 +46,6 @@ const Field = styled(Field_)`
   gap: 20px;
   align-items: center;
   justify-content: space-between;
-`;
-
-const Separator = styled.div`
-  width: 100%;
-  height: 1px;
-  background: #ccc;
 `;
 
 const InputText = styled(InputText_)`
@@ -73,8 +70,8 @@ const Home = ({ className, bug, projectId, ...props }) => {
   const [urgency, setUrgency] = useState(bug.urgency);
   const [assigneesAvailable, setAssigneesAvailable] = useState([]);
   const [assignee, setAssignee] = useState(bug.assignees?.[0]);
-  const [attachment, selectAttachment] = useFileUpload();
-  const [attachments, setAttachments] = useState(bug.attachments);
+  // const [attachments, selectAttachments] = useFileUpload();
+  const [attachments, setAttachments] = useState();
   const [tagsAvailable, setTagsAvailable] = useState([]);
   const [tag, setTag] = useState();
 
@@ -117,6 +114,7 @@ const Home = ({ className, bug, projectId, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
       <Attributes
+        columns
         attributes={{
           "project id": project.projectId,
           "project title": project.title,
@@ -130,15 +128,12 @@ const Home = ({ className, bug, projectId, ...props }) => {
           directory={`/bug-edit?projectId=${projectId}&bugId=${bug.id}`}
           body={{ ...changes }}
         >
-          <Separator />
           <Field label="title" changed={title !== bug.title}>
             <InputText value={title} onChange={set(setTitle)} />
           </Field>
-          <Separator />
           <Field label="description" changed={description !== bug.description}>
             <InputTextArea value={description} onChange={set(setDescription)} />
           </Field>
-          <Separator />
           <Field
             label="reproducible"
             changed={reproducible !== bug.reproducible}
@@ -148,37 +143,49 @@ const Home = ({ className, bug, projectId, ...props }) => {
               onChange={() => setReproducible((reproducible) => !reproducible)}
             />
           </Field>
-          <Separator />
           <Field label="impact" changed={Number(impact) !== bug.impact}>
             <InputSelect
               value={impact}
               onChange={set((value) => setImpact(Number(value)))}
             />
           </Field>
-          <Separator />
           <Field label="urgency" changed={Number(urgency) !== bug.urgency}>
             <InputSelect
               value={urgency}
               onChange={set((value) => setUrgency(Number(value)))}
             />
           </Field>
-          <Separator />
         </Form>
       </Edit>
-      <Attachments title="attachments">
-        <Separator />
-        <Field label="upload an attachment">
-          <InputFile selectFile={selectAttachment} />
-        </Field>
-        <Separator />
-      </Attachments>
-      <AddAssignee title="Add an assignee">
+      <Attach title="attach files">
         <Form
-          submitText="Add"
+          submitText="Attach"
+          disabled={!attachments?.length}
+          directory={`/attach?projectId=${projectId}&bugId=${bug.id}`}
+          files
+          body={attachments}
+        >
+          <Field label="upload files">
+            <InputFile setFile={setAttachments} />
+          </Field>
+          {attachments?.length ? (
+            [...attachments].map((attachment, index) => (
+              <Field label="Selected file" key={index}>
+                {attachment.name}
+              </Field>
+            ))
+          ) : (
+            <Field label="No files selected"></Field>
+          )}
+        </Form>
+      </Attach>
+      <Attachments columns bug={bug} />
+      <AddAssignee title="assign to member">
+        <Form
+          submitText="Assign"
           disabled={!assignee}
           directory={`/assign?projectId=${projectId}&bugId=${bug.id}&userId=${assignee?.userId}`}
         >
-          <Separator />
           <Field label="Select">
             {assigneesAvailable?.length ? (
               <InputSelect
@@ -192,12 +199,10 @@ const Home = ({ className, bug, projectId, ...props }) => {
               <>No assignees available</>
             )}
           </Field>
-          <Separator />
         </Form>
       </AddAssignee>
-      <Assignees bug={bug} />
+      <Assignees columns bug={bug} />
       <AddTag title="Add a tag">
-        <Separator />
         <Form
           submitText="Add"
           disabled={!tag}
@@ -216,10 +221,9 @@ const Home = ({ className, bug, projectId, ...props }) => {
               <>No tags available</>
             )}
           </Field>
-          <Separator />
         </Form>
       </AddTag>
-      <Tags bug={bug} />
+      <Tags columns bug={bug} />
     </Wrapper>
   );
 };

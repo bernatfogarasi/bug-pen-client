@@ -34,13 +34,6 @@ const Title = styled.div`
   text-align: right;
 `;
 
-const Creator = styled.div`
-  grid-row: 3;
-  grid-column: 2 / 4;
-  align-self: flex-end;
-  color: #00bfa6;
-`;
-
 const Members = styled.div`
   grid-row: 2;
   grid-column: 2 / 4;
@@ -66,7 +59,6 @@ const Project = ({ className, project, ...props }) => {
       <Type>Project</Type>
       <Title>{project.title}</Title>
       <Members>Members: {project.memberCount}</Members>
-      <Creator>Created by you</Creator>
     </Wrapper>
   );
 };

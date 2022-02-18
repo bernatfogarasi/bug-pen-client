@@ -1,8 +1,8 @@
 import Assignee from "./Assignee";
-import Section from "components/Section";
+import SectionGrid from "components/SectionGrid";
 import styled from "styled-components";
 
-const Wrapper = styled(Section)`
+const Wrapper = styled(SectionGrid)`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -14,7 +14,7 @@ const Assignees = ({ className, bug, ...props }) => {
     <Wrapper className={className} title="assignees" {...props}>
       {bug.assignees
         .sort((assignee1, assignee2) =>
-          assignee1.title > assignee2.title ? 1 : -11
+          assignee1.title > assignee2.title ? 1 : -1
         )
         .map((assignee, index) => (
           <Assignee

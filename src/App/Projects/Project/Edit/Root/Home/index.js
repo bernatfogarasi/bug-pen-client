@@ -6,7 +6,6 @@ import InputTextArea_ from "components/InputTextArea";
 import InputText_ from "components/InputText";
 import Page from "components/Page";
 import Section from "components/Section";
-import Separator from "components/Separator";
 import Tag from "components/Tag";
 import Tags from "./Tags";
 import styled from "styled-components";
@@ -76,15 +75,12 @@ const Home = ({ className, projectId, ...props }) => {
           directory={`/project-edit?projectId=${projectId}`}
           body={{ ...changes }}
         >
-          <Separator />
           <Field label="Title">
             <InputText value={title} onChange={set(setTitle)} />
           </Field>
-          <Separator />
           <Field label="Description">
             <InputTextArea value={description} onChange={set(setDescription)} />
           </Field>
-          <Separator />
         </Form>
       </Edit>
       <AddTag title="Add a tag">
@@ -98,7 +94,6 @@ const Home = ({ className, projectId, ...props }) => {
             borderColor: newTagBorderColor,
           }}
         >
-          <Separator />
           <Field label="Appearance">
             <Tag
               title={newTagTitle}
@@ -107,32 +102,27 @@ const Home = ({ className, projectId, ...props }) => {
               borderColor={newTagBorderColor}
             />
           </Field>
-          <Separator />
           <Field label="Name">
             <InputText value={newTagTitle} onChange={set(setNewTagTitle)} />
           </Field>
-          <Separator />
           <Field label="Text color">
             <InputColor
               value={newTagTextColor}
               onChange={set(setNewTagTextColor)}
             />
           </Field>
-          <Separator />
           <Field label="Background color">
             <InputColor
               value={newTagBackgroundColor}
               onChange={set(setNewTagBackgroundColor)}
             />
           </Field>
-          <Separator />
           <Field label="Border color">
             <InputColor
               value={newTagBorderColor}
               onChange={set(setNewTagBorderColor)}
             />
           </Field>
-          <Separator />
         </Form>
         <Tags />
       </AddTag>

@@ -1,30 +1,26 @@
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.input`
+  background: white;
   border: 1px solid #ccc;
-  padding: 4px;
-  box-sizing: border-box;
-  cursor: pointer;
-  background: #eee;
-  color: black;
-  width: fit-content;
+  padding: 10px;
+  color: inherit;
 `;
 
-const InputFile = ({
-  className,
-  options = { accept: "*", multiple: true },
-  selectFile,
-  ...props
-}) => {
-  const onClick = () => {
-    selectFile(options, ({ source, name, size, file }) =>
-      console.log({ source, name, size, file })
-    );
+const InputFile = ({ className, setFile, ...props }) => {
+  const onChange = (event) => {
+    const file = event.target.files;
+    console.log(file);
+    setFile(file);
   };
   return (
-    <Wrapper className={className} onClick={onClick} {...props}>
-      Upload
-    </Wrapper>
+    <Wrapper
+      className={className}
+      type="file"
+      multiple
+      onChange={onChange}
+      {...props}
+    />
   );
 };
 

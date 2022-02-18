@@ -1,10 +1,10 @@
-import useApp from "hooks/useApp";
 import { Fragment } from "react";
-import styled from "styled-components";
-import imageArrow from "assets/icons/arrow2.png";
 import Link from "components/Link";
-import { titleFont } from "functions/text";
 import LoaderDots from "components/LoaderDots";
+import imageArrow from "assets/icons/arrow2.png";
+import styled from "styled-components";
+import { titleFont } from "functions/text";
+import useApp from "hooks/useApp";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,6 +12,11 @@ const Wrapper = styled.div`
   align-items: center;
   flex-grow: 1;
   overflow-x: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 const Name = styled(Link)`
@@ -22,6 +27,7 @@ const Name = styled(Link)`
   :hover {
     background: #eee;
   }
+  white-space: nowrap;
 `;
 
 const Arrow = styled.img`
@@ -43,6 +49,8 @@ const Breadcrumbs = ({ className, ...props }) => {
               ? project?.title
               : previous?.at(-1)?.name === "profiles"
               ? profile?.name
+              : previous?.at(-1)?.name === "bugs"
+              ? project?.bugs.find((bug) => Number(name) === bug.index).title
               : titleFont(name),
           to: "/" + [...previous.map(({ name }) => name), name].join("/"),
         },

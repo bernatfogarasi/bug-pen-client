@@ -1,15 +1,8 @@
-import Section from "components/Section";
-import styled from "styled-components";
 import Attribute from "./Attribute";
+import SectionGrid from "components/SectionGrid";
+import styled from "styled-components";
 
-const Wrapper = styled(Section)`
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1px;
-  padding: 1px;
-  background: #333;
-  margin: auto;
-`;
+const Wrapper = styled(SectionGrid)``;
 
 const Row = styled.div`
   display: table-column;

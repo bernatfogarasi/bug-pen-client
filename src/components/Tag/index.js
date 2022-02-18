@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   padding: 2px 10px;
   white-space: nowrap;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   border: 1px solid #ccc;
   background: #eee;
