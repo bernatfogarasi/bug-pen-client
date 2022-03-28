@@ -1,6 +1,7 @@
 import Page from "components/Page";
 import useApp from "hooks/useApp";
 import styled from "styled-components";
+
 import Bug from "./Bug";
 
 const Wrapper = styled(Page)`

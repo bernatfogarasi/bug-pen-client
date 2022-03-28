@@ -1,10 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import useHint from "./useHint";
 import useResponse from "hooks/useResponse";
 
+import useHint from "./useHint";
+
 const useRequest = () => {
-  const { user, getAccessTokenSilently, loginWithPopup, isAuthenticated } =
-    useAuth0();
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
   const { save } = useResponse();
 
@@ -62,6 +62,7 @@ const useRequest = () => {
       {
         headers: { Authorization: `Bearer ${accessToken}` },
         redirect: "follow",
+        credentials: "include",
       },
       callback
     );
@@ -80,6 +81,7 @@ const useRequest = () => {
         },
         body: JSON.stringify({ ...body }),
         redirect: "follow",
+        credentials: "include",
       },
       callback
     );

@@ -1,6 +1,6 @@
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 
-export default [
+const extensions = [
   { extension: "aac", mimes: ["audio/aac"], type: "audio" },
   { extension: "abw", mimes: ["application/x-abiword"], type: "text" },
   { extension: "arc", mimes: ["application/x-freearc"], type: "comperssed" },
@@ -123,3 +123,5 @@ export default [
   },
   { extension: "7z", mimes: ["application/x-7z-compressed"], type: "" },
 ];
+
+export default extensions;

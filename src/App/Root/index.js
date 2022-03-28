@@ -1,5 +1,6 @@
 import Page from "components/Page";
 import styled from "styled-components";
+
 import Illustration from "./Illustration";
 import Members from "./Members";
 import Updates from "./Updates";

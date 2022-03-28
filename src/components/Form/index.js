@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
-import { useEffect, useState } from "react";
-
 import LoaderDots from "components/LoaderDots";
-import Submit from "./Submit";
 import useRequest from "hooks/useRequest";
+import { useState } from "react";
+import styled, { css } from "styled-components";
+
+import Submit from "./Submit";
 
 const Wrapper = styled.form`
   display: flex;

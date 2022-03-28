@@ -1,5 +1,4 @@
 import LoaderDots from "components/LoaderDots";
-import LoadingPage from "components/LoadingPage";
 import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useEffect, useState } from "react";

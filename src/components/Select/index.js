@@ -8,7 +8,7 @@ const Wrapper = styled.select`
 `;
 
 const Select = ({ className, ...props }) => {
-  return <Wrapper className={className} onse {...props}></Wrapper>;
+  return <Wrapper className={className} {...props}></Wrapper>;
 };
 
 export default Select;

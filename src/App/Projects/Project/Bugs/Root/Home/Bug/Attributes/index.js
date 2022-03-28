@@ -1,7 +1,8 @@
+import styled from "styled-components";
+
 import Attribute from "./Attribute";
 import Boolean from "./Boolean";
 import Scale from "./Scale";
-import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: grid;

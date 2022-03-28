@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-
-import Home from "./Home";
 import LoadingPage from "components/LoadingPage";
 import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
+import { useEffect, useState } from "react";
+
+import Home from "./Home";
 
 const Bug = ({ className, ...props }) => {
   const [loading, setLoading] = useState(true);

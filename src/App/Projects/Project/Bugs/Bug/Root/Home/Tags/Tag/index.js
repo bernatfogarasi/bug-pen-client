@@ -1,24 +1,14 @@
 import ButtonSmall from "components/ButtonSmall";
-import Link from "components/Link";
 import Tag__ from "components/Tag";
-import styled from "styled-components";
 import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useState } from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
   gap: 10px;
   align-items: center;
-`;
-
-const Text = styled.div`
-  opacity: 0.6;
-`;
-
-const Name = styled(Link)`
-  color: #00bfa6;
-  text-decoration: underline;
 `;
 
 const Tag_ = styled(Tag__)`

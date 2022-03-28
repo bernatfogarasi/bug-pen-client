@@ -1,6 +1,7 @@
 import useApp from "hooks/useApp";
 import useDelay from "hooks/useDelay";
 import styled from "styled-components";
+
 import Close from "./Close";
 import Image from "./Image";
 import Title from "./Title";

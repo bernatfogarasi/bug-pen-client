@@ -1,22 +1,22 @@
 import "styles/fonts/index.css";
 
-import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
-import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-
+import { Auth0Provider } from "@auth0/auth0-react";
 import { AppContext } from "context";
-import Bug from "./Projects/Project/Bugs/Bug/Root";
-import Bugs from "./Projects/Project/Bugs/Root";
-import Connections from "./Connections/Root";
-import Edit from "./Projects/Project/Edit/Root";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import styled from "styled-components";
 import GlobalStyle from "styles/globalStyle";
-import Members from "./Projects/Project/Members/Root";
+
+import Connections from "./Connections/Root";
 import Profile from "./Profiles/Profile/Root";
 import Profiles from "./Profiles/Root";
+import Bug from "./Projects/Project/Bugs/Bug/Root";
+import Bugs from "./Projects/Project/Bugs/Root";
+import Edit from "./Projects/Project/Edit/Root";
+import Members from "./Projects/Project/Members/Root";
 import Project from "./Projects/Project/Root";
 import Projects from "./Projects/Root";
 import Root from "./Root";
-import styled from "styled-components";
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;

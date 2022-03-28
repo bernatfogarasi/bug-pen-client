@@ -1,6 +1,7 @@
-import styled from "styled-components";
 import Table from "components/Table";
 import TableHead from "components/TableHead";
+import styled from "styled-components";
+
 import Bug from "./Bug";
 
 const Wrapper = styled.div`

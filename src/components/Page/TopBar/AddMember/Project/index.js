@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import Option from "components/Option";
+import styled from "styled-components";
 
 const Wrapper = styled(Option)``;
 

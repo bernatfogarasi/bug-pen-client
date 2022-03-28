@@ -1,8 +1,9 @@
 import { css } from "styled-components";
 
-import MontserratTTF from "./Montserrat/Montserrat-Regular.ttf";
 import MontserratMediumTTF from "./Montserrat/Montserrat-Medium.ttf";
+import MontserratTTF from "./Montserrat/Montserrat-Regular.ttf";
 import MontserratSemiboldTTF from "./Montserrat/Montserrat-SemiBold.ttf";
+
 // import GlutenTTF from "./Gluten/Gluten-VariableFont_wght.ttf";
 
 const fonts = css`

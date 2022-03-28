@@ -1,14 +1,10 @@
 # BugPen
 
-
-
 ## Live
 
-BugPen will be deployed soon.
+Client deployed at: [bugpen.vercel.app](http://bugpen.vercel.app)
 
-<strike>Client deployed at: [bugpen.com](http://bugpen.com)
-
-Server deployed at: [api.bugpen.com](http://api.bugpen.com)</strike>
+Server deployed at: [bugpen.herokuapp.com](http://bugpen.herokuapp.com)
 
 ## What is BugPen?
 

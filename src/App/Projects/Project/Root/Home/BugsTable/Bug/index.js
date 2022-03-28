@@ -1,14 +1,15 @@
+import TableRow from "components/TableRow";
 import styled from "styled-components";
-import Title from "./Title";
-import Tags from "./Tags";
+
 import Assignees from "./Assignees";
-import Description from "./Description";
 import Attachments from "./Attachments";
+import Description from "./Description";
 import Priority from "./Priority";
 import Reporter from "./Reporter";
 import Reproducible from "./Reproducible";
 import Severity from "./Severity";
-import TableRow from "components/TableRow";
+import Tags from "./Tags";
+import Title from "./Title";
 
 const Wrapper = styled(TableRow)``;
 

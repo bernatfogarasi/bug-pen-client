@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import extensions from "constants/files";
 import fileImage from "assets/icons/file.png";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: relative;

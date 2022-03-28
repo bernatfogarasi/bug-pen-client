@@ -1,8 +1,8 @@
-import useApp from "hooks/useApp";
-import styled from "styled-components";
+import ModalAttachments from "components/ModalAttachments";
 import ModalCreateProject from "components/ModalCreateProject";
 import ModalEditProject from "components/ModalEditProject";
-import ModalAttachments from "components/ModalAttachments";
+import useApp from "hooks/useApp";
+import styled from "styled-components";
 
 const modalComponents = {
   createProject: ModalCreateProject,

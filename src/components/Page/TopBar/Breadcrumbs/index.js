@@ -1,10 +1,10 @@
-import { Fragment } from "react";
+import imageArrow from "assets/icons/arrow2.png";
 import Link from "components/Link";
 import LoaderDots from "components/LoaderDots";
-import imageArrow from "assets/icons/arrow2.png";
-import styled from "styled-components";
 import { titleFont } from "functions/text";
 import useApp from "hooks/useApp";
+import { Fragment } from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;

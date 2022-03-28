@@ -2,6 +2,7 @@ import Section from "components/Section";
 import { extractTime } from "functions/text";
 import useApp from "hooks/useApp";
 import styled from "styled-components";
+
 import Attribute from "./Attribute";
 
 const Wrapper = styled(Section)`

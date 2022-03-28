@@ -1,13 +1,11 @@
 import { titleFont } from "functions/text";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Wrapper = styled.div``;
 
 const Label = styled.div`
   opacity: 0.6;
 `;
-
-const Content = styled.div``;
 
 const Changed = styled.div`
   margin-right: auto;

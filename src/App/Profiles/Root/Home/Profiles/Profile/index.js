@@ -1,7 +1,6 @@
-import styled from "styled-components";
-import replaceWithComponent from "react-string-replace";
-import ProfilePicture from "components/ProfilePicture";
 import Link from "components/Link";
+import ProfilePicture from "components/ProfilePicture";
+import styled from "styled-components";
 
 const Wrapper = styled(Link)`
   display: flex;
@@ -14,13 +13,6 @@ const Wrapper = styled(Link)`
   :hover {
     background: #eee;
   }
-`;
-
-const Highlight = styled.div`
-  background: #eee;
-  border: 1px solid;
-  display: inline-block;
-  padding: 0 2px;
 `;
 
 const Index = styled.div``;

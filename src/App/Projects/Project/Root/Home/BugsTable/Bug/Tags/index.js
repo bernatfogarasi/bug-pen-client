@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Tag from "components/Tag";
 import TableCell from "components/TableCell";
+import Tag from "components/Tag";
+import styled from "styled-components";
 
 const tagsDefault = [
   {
@@ -31,7 +31,7 @@ const tagsDefault = [
 
 const Wrapper = styled(TableCell)``;
 
-const Tag = ({ className, ...props }) => {
+const Tags = ({ className, ...props }) => {
   const tag = tagsDefault[2];
   return (
     <Wrapper className={className} {...props}>
@@ -40,4 +40,4 @@ const Tag = ({ className, ...props }) => {
   );
 };
 
-export default Tag;
+export default Tags;

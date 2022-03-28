@@ -2,6 +2,7 @@ import LoadingPage from "components/LoadingPage";
 import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useEffect, useState } from "react";
+
 import Home from "./Home";
 
 const Edit = ({ className, ...props }) => {
@@ -9,7 +10,7 @@ const Edit = ({ className, ...props }) => {
 
   const { get } = useRequest();
 
-  const { project, refresh } = useApp();
+  const { refresh } = useApp();
 
   const projectId = window.location.pathname.split("/")[2];
 

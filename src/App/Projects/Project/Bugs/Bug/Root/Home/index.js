@@ -1,23 +1,20 @@
-import { useEffect, useState } from "react";
-
-import Assignees from "./Assignees";
-import Attachments from "./Attachments";
 import Attributes from "components/Attributes";
 import Field_ from "components/Field";
 import Form from "components/Form";
 import InputBoolean from "components/InputBoolean";
 import InputFile_ from "components/InputFile";
 import InputSelect from "components/InputSelect";
-import InputTextArea_ from "components/InputTextArea";
 import InputText_ from "components/InputText";
-import Json from "components/Json";
+import InputTextArea_ from "components/InputTextArea";
 import Page from "components/Page";
 import Section_ from "components/Section";
-import Tags from "./Tags";
-import styled from "styled-components";
 import useApp from "hooks/useApp";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 
-// import { useFileUpload } from "use-file-upload";
+import Assignees from "./Assignees";
+import Attachments from "./Attachments";
+import Tags from "./Tags";
 
 const Wrapper = styled(Page)`
   display: flex;
@@ -88,7 +85,7 @@ const Home = ({ className, bug, projectId, ...props }) => {
           .includes(member.userId)
     );
     setAssigneesAvailable(assigneesAvailable);
-  }, [bug, tag, project]);
+  }, [bug, project]);
 
   useEffect(() => {
     setTag(tagsAvailable?.[0]);
@@ -215,7 +212,9 @@ const Home = ({ className, bug, projectId, ...props }) => {
                   value: tag.id,
                   content: tag.title,
                 }))}
-                onChange={set((value) => setTag(Number(value)))}
+                onChange={set((value) =>
+                  setTag(tagsAvailable.find((tag) => tag.id === Number(value)))
+                )}
               />
             ) : (
               <>No tags available</>

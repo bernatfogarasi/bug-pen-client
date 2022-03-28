@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
-
 import Section from "components/Section";
+import styled, { css } from "styled-components";
 
 const Wrapper = styled(Section)`
   display: grid;

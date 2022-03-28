@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
-
 import LoaderDots from "components/LoaderDots";
+import styled, { css } from "styled-components";
 
 const Wrapper = styled.button`
   color: #fff;

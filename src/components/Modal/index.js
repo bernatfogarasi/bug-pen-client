@@ -1,6 +1,6 @@
+import closeImage from "assets/icons/close.png";
 import useClickAway from "hooks/useClickAway";
 import styled from "styled-components";
-import closeImage from "assets/icons/close.png";
 
 const Overlay = styled.div`
   position: absolute;

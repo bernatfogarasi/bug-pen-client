@@ -4,6 +4,7 @@ import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+
 import Profiles from "./Profiles";
 
 const Wrapper = styled(Page)`
@@ -72,7 +73,7 @@ const Home = ({ className, ...props }) => {
 
   return (
     <Wrapper className={className} me {...props}>
-      <Form onSubmit={onSubmit} onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit}>
         <Label>Search for users</Label>
         <Input ref={inputRef} value={text} onChange={onTextChange} />
       </Form>

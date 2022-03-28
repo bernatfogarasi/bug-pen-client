@@ -1,7 +1,7 @@
-import Section from "components/Section";
 import SectionGrid from "components/SectionGrid";
-import Tag from "./Tag";
 import styled from "styled-components";
+
+import Tag from "./Tag";
 
 const Wrapper = styled(SectionGrid)``;
 

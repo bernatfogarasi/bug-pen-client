@@ -1,12 +1,9 @@
-import Attribute from "./Attribute";
 import SectionGrid from "components/SectionGrid";
 import styled from "styled-components";
 
-const Wrapper = styled(SectionGrid)``;
+import Attribute from "./Attribute";
 
-const Row = styled.div`
-  display: table-column;
-`;
+const Wrapper = styled(SectionGrid)``;
 
 const Attributes = ({ className, attributes = {}, ...props }) => {
   return (

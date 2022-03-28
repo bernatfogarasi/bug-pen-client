@@ -1,11 +1,11 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import LoadingPage from "components/LoadingPage";
+import useApp from "hooks/useApp";
+import useRequest from "hooks/useRequest";
 import { useEffect, useState } from "react";
 
 import Empty from "./Empty";
 import Home from "./Home";
-import LoadingPage from "components/LoadingPage";
-import useApp from "hooks/useApp";
-import { useAuth0 } from "@auth0/auth0-react";
-import useRequest from "hooks/useRequest";
 
 const Projects = ({ className, ...props }) => {
   const { projects, refresh } = useApp();

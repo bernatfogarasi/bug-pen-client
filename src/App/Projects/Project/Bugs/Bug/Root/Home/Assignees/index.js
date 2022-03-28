@@ -1,6 +1,7 @@
-import Assignee from "./Assignee";
 import SectionGrid from "components/SectionGrid";
 import styled from "styled-components";
+
+import Assignee from "./Assignee";
 
 const Wrapper = styled(SectionGrid)`
   display: flex;

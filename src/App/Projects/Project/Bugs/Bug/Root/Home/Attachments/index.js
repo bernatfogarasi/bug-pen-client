@@ -1,6 +1,7 @@
-import Attachment from "./Attachment";
 import SectionGrid from "components/SectionGrid";
 import styled from "styled-components";
+
+import Attachment from "./Attachment";
 
 const Wrapper = styled(SectionGrid)``;
 

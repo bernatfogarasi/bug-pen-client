@@ -1,7 +1,7 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import Link from "components/Link";
 import ProfilePicture from "components/ProfilePicture";
 import styled from "styled-components";
+
 import Actions from "./Actions";
 
 const Wrapper = styled.div`

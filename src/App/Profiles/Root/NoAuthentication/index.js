@@ -1,6 +1,6 @@
+import imageProfile from "assets/illustrations/profile.svg";
 import Page from "components/Page";
 import styled from "styled-components";
-import imageProfile from "assets/illustrations/profile.svg";
 
 const Wrapper = styled(Page)`
   display: flex;

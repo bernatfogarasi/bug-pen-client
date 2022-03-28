@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+
 import animations from "./animations";
 
 const GlobalStyle = createGlobalStyle`

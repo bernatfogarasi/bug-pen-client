@@ -1,7 +1,7 @@
-import Page from "components/Page";
-import image from "assets/illustrations/blank_canvas.svg";
-import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
+import image from "assets/illustrations/blank_canvas.svg";
+import Page from "components/Page";
+import styled from "styled-components";
 
 const Wrapper = styled(Page)`
   display: flex;

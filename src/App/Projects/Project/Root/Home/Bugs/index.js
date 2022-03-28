@@ -1,6 +1,7 @@
 import Section from "components/Section";
 import useApp from "hooks/useApp";
 import styled from "styled-components";
+
 import Bug from "./Bug";
 
 const Wrapper = styled(Section)`

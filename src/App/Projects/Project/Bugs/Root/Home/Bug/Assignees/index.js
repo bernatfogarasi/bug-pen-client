@@ -1,5 +1,4 @@
 import Link from "components/Link";
-import ProfilePicture from "components/ProfilePicture";
 import styled from "styled-components";
 
 const Wrapper = styled.div``;

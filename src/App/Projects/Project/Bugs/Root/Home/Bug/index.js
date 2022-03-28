@@ -1,9 +1,10 @@
-import Assignees from "./Assignees";
-import Attributes from "./Attributes";
 import Link from "components/Link";
-import Tags from "./Tags";
 import Text from "components/Text";
 import styled from "styled-components";
+
+import Assignees from "./Assignees";
+import Attributes from "./Attributes";
+import Tags from "./Tags";
 
 const Wrapper = styled(Link)`
   display: flex;

@@ -4,6 +4,7 @@ import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+
 import Home from "./Home";
 
 const Wrapper = styled(Page)`
@@ -12,7 +13,7 @@ const Wrapper = styled(Page)`
 `;
 
 const Profile = ({ className, ...props }) => {
-  const { profile, projects, refresh } = useApp();
+  const { profile, refresh } = useApp();
 
   const [loadingProjects, setLoadingProjects] = useState(true);
   const [loadingProfile, setLoadingProfile] = useState(true);

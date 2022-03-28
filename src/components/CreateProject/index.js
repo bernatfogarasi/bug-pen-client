@@ -23,13 +23,11 @@ const CreateProject = ({ className, ...props }) => {
         required
         value={title}
         setValue={setTitle}
-        value={title}
       />
       <FormField
         label="Description"
         value={description}
         setValue={setDescription}
-        value={description}
       />
     </Wrapper>
   );

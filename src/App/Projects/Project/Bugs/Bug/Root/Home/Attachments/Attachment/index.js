@@ -1,9 +1,9 @@
 import ButtonSmall from "components/ButtonSmall";
 import { fileSize } from "functions/text";
-import styled from "styled-components";
 import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useState } from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;

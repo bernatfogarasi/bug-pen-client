@@ -1,8 +1,7 @@
-import styled from "styled-components";
 import image from "assets/icons/refresh.png";
 import useApp from "hooks/useApp";
 import useHint from "hooks/useHint";
-import { useEffect } from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.img`
   padding: 10px;

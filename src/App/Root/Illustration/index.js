@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import image from "assets/illustrations/bug_fixing.svg";
+import styled from "styled-components";
 
 const Wrapper = styled.img`
   width: 60%;

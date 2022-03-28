@@ -1,10 +1,10 @@
 import Page from "components/Page";
 import styled from "styled-components";
+
 import Attributes from "./Attributes";
 import Bugs from "./Bugs";
-import Members from "./Members";
-import ButtonAnimated from "components/ButtonAnimated";
 import Buttons from "./Buttons";
+import Members from "./Members";
 
 const Wrapper = styled(Page)`
   display: grid;

@@ -1,16 +1,15 @@
-import { useEffect } from "react";
 import useApp from "./useApp";
 
-const modals = {
-  open: { type: "" },
-  minimized: [
-    { type: "" },
-    { type: "" },
-    { type: "" },
-    { type: "" },
-    { type: "" },
-  ],
-};
+// const modals = {
+//   open: { type: "" },
+//   minimized: [
+//     { type: "" },
+//     { type: "" },
+//     { type: "" },
+//     { type: "" },
+//     { type: "" },
+//   ],
+// };
 
 const useModals = () => {
   // const { modalOpen, modalsMinimized, setModalOpen, setModalsMinimized } =

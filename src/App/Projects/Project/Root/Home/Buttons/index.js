@@ -1,6 +1,6 @@
 import styled from "styled-components";
+
 import Button from "./Button";
-import EditMembers from "./EditMembers";
 
 const Wrapper = styled.div`
   display: flex;

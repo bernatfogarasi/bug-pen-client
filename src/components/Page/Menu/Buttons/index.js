@@ -1,11 +1,12 @@
-import styled, { css } from "styled-components";
-import Button from "./Button";
-import imageProjects from "assets/icons/projects2.png";
-import imageProfiles from "assets/icons/profiles.png";
-import imageProfile from "assets/icons/profile2.png";
-import imageHome from "assets/icons/house.png";
 import { useAuth0 } from "@auth0/auth0-react";
+import imageHome from "assets/icons/house.png";
+import imageProfile from "assets/icons/profile2.png";
+import imageProfiles from "assets/icons/profiles.png";
+import imageProjects from "assets/icons/projects2.png";
 import useApp from "hooks/useApp";
+import styled from "styled-components";
+
+import Button from "./Button";
 import Logout from "./Logout";
 
 const Wrapper = styled.div`
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 `;
 
 const Buttons = ({ className, ...props }) => {
-  const { user, isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const { menuIsOpen } = useApp();
   return (
     <Wrapper className={className} open={menuIsOpen} {...props}>

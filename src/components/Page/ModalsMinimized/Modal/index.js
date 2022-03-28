@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import useModals from "hooks/useModals";
 
 const Wrapper = styled.div`
   width: 150px;

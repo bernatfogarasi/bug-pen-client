@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import image from "assets/icons/bug.png";
+import styled from "styled-components";
 
 const Wrapper = styled.img`
   height: 30px;

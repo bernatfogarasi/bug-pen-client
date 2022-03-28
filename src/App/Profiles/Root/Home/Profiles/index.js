@@ -1,6 +1,7 @@
 import Section from "components/Section";
 import useApp from "hooks/useApp";
 import styled from "styled-components";
+
 import Profile from "./Profile";
 
 const Wrapper = styled(Section)`
@@ -10,10 +11,6 @@ const Wrapper = styled(Section)`
 `;
 
 const Empty = styled.div``;
-
-const Highlight = styled.div`
-  color: #00bfa6;
-`;
 
 const Profiles = ({ className, textSearched, ...props }) => {
   const { profiles } = useApp();

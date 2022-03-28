@@ -1,8 +1,9 @@
 import Option from "components/Option";
 import Select from "components/Select";
 import useApp from "hooks/useApp";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
+
 import Action from "./Action";
 
 const Wrapper = styled.div`

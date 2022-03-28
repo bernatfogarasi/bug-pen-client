@@ -1,6 +1,6 @@
+import TableHeadCell from "components/TableHeadCell";
 import TableRow from "components/TableRow";
 import styled from "styled-components";
-import TableHeadCell from "components/TableHeadCell";
 
 const Wrapper = styled(TableRow)`
   position: sticky;

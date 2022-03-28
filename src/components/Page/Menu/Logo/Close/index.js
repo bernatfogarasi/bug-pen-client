@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import useApp from "hooks/useApp";
 import imageArrow from "assets/icons/arrow.png";
+import useApp from "hooks/useApp";
+import styled from "styled-components";
 import { css } from "styled-components";
 
 const Wrapper = styled.img`

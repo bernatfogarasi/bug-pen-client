@@ -1,7 +1,8 @@
 import Section from "components/Section";
-import Tag from "./Tag";
-import styled from "styled-components";
 import useApp from "hooks/useApp";
+import styled from "styled-components";
+
+import Tag from "./Tag";
 
 const Wrapper = styled(Section)`
   padding: 10px;

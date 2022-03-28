@@ -18,18 +18,11 @@ const ReportBug = ({ className, ...props }) => {
       directory={`/bug-report?projectId=${project.projectId}`}
       {...props}
     >
-      <FormField
-        label="Title"
-        value={title}
-        setValue={setTitle}
-        value={title}
-        required
-      />
+      <FormField label="Title" value={title} setValue={setTitle} required />
       <FormField
         label="Description"
         value={description}
         setValue={setDescription}
-        value={description}
       />
     </Wrapper>
   ) : (

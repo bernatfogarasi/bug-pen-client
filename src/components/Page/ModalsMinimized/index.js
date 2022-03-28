@@ -1,5 +1,6 @@
 import useApp from "hooks/useApp";
 import styled from "styled-components";
+
 import Modal from "./Modal";
 
 const Wrapper = styled.div`

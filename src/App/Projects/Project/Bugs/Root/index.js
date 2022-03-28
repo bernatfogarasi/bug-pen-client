@@ -2,6 +2,7 @@ import LoadingPage from "components/LoadingPage";
 import useApp from "hooks/useApp";
 import useRequest from "hooks/useRequest";
 import { useEffect, useState } from "react";
+
 import Home from "./Home";
 
 const Bugs = ({ className, ...props }) => {
