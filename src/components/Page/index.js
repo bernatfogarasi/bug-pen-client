@@ -23,11 +23,13 @@ const Wrapper = styled.div`
 const Page = ({ className, children, ...props }) => {
   const [loadingMe, setLoadingMe] = useState(true);
   const { hint, me } = useApp();
-  const { isLoading } = useAuth0();
+  const { isLoading, user } = useAuth0();
   const { get } = useRequest();
 
   useEffect(() => {
     if (!me) get("/me", () => setLoadingMe(false));
+    console.log(me);
+    console.log(user);
   }, [me]);
 
   return isLoading && !me ? (
